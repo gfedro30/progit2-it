@@ -465,7 +465,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_smart_http_2">Smart HTTP</a></li>
 <li><a href="#_gitweb">GitWeb</a></li>
 <li><a href="#_gitlab">GitLab</a></li>
-<li><a href="#_third_party_hosted_options">Third Party Hosted Options</a></li>
+<li><a href="#_opzioni_di_hosting_di_terze_parti">Opzioni di hosting di terze parti</a></li>
 <li><a href="#_summary_3">Summary</a></li>
 </ul>
 </li>
@@ -546,7 +546,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_summary_13">Summary</a></li>
 </ul>
 </li>
-<li><a href="#_embedding_git_in_your_applications">Appendix B: Embedding Git in your Applications</a>
+<li><a href="#_integrare_git_nelle_tua_applicazioni">Appendix B: Integrare Git nelle tua applicazioni</a>
 <ul class="sectlevel2">
 <li><a href="#_command_line_git">Command-line Git</a></li>
 <li><a href="#_libgit2">Libgit2</a></li>
@@ -5621,18 +5621,18 @@ One benefit to GitLab is that, once the server is set up and running, you&#8217;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_third_party_hosted_options">Third Party Hosted Options</h3>
+<h3 id="_opzioni_di_hosting_di_terze_parti">Opzioni di hosting di terze parti</h3>
 <div class="paragraph">
-<p>If you don&#8217;t want to go through all of the work involved in setting up your own Git server, you have several options for hosting your Git projects on an external dedicated hosting site.
-Doing so offers a number of advantages: a hosting site is generally quick to set up and easy to start projects on, and no server maintenance or monitoring is involved.
-Even if you set up and run your own server internally, you may still want to use a public hosting site for your open source code – it&#8217;s generally easier for the open source community to find and help you with.</p>
+<p>Se non vuoi occuparti di tutto il lavoro necessario per configurare il tuo server Git hai molte opzioni per ospitare i tuoi progetti Git su un server esterno dedicato.
+Questo approccio ha numerosi vantaggi: normalmente è più veloce configurare e iniziare un progetto su un sito di hosting e non devi occuparti di farci manutenzione o controllarli.
+Anche se hai configurato e stai usando un server interno, probabilmente ti converrà comunque usare un sito pubblico di hosting per i tuoi sorgenti: saranno più facilmente raggiungibili dalla comunità open source e potranno aiutarti.</p>
 </div>
 <div class="paragraph">
-<p>These days, you have a huge number of hosting options to choose from, each with different advantages and disadvantages.
-To see an up-to-date list, check out the GitHosting page on the main Git wiki at <a href="https://git.wiki.kernel.org/index.php/GitHosting" class="bare">https://git.wiki.kernel.org/index.php/GitHosting</a></p>
+<p>Al giorno d&#8217;oggi hai molte opzioni di hosting tra cui scegliere, ciascuna con i propri vantaggi e svantaggi.
+Per una lista aggiornata consulta la pagina sugli hosting Git nella wiki principale di Git all&#8217;indirizzo <a href="https://git.wiki.kernel.org/index.php/GitHosting" class="bare">https://git.wiki.kernel.org/index.php/GitHosting</a></p>
 </div>
 <div class="paragraph">
-<p>We&#8217;ll cover using GitHub in detail in <a href="#_github">GitHub</a>, as it is the largest Git host out there and you may need to interact with projects hosted on it in any case, but there are dozens more to choose from should you not want to set up your own Git server.</p>
+<p>Vedremo in dettaglio come si usa GitHub in <a href="#_github">GitHub</a>, poiché è il più grande hosting esistente di Git e avrai in ogni caso bisogno di interagire con progetti ospitati lì, ma ci sono dozzine di altri servizi tra cui scegliere che non vorrai configurare un tuo server Git.</p>
 </div>
 </div>
 <div class="sect2">
@@ -21537,17 +21537,17 @@ For complete documentation of this feature (which doesn&#8217;t fit here), go to
 <h3 id="_git_in_eclipse">Git in Eclipse</h3>
 <div class="paragraph">
 <p>
-Eclipse ships with a plugin called Egit, which provides a fairly-complete interface to Git operations.
-It&#8217;s accessed by switching to the Git Perspective (Window &gt; Open Perspective &gt; Other…, and select "Git").</p>
+Eclipse contiene un plugin chiamato Egit che fornisce un&#8217;interfaccia quasi completa per Git.
+Puoi accedervi passando alla prospettiva di Git Perspective (Window &gt; Open Perspective &gt; Other…, e seleziona "Git").</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/egit.png" alt="Eclipse's EGit environment.">
+<img src="images/egit.png" alt="L'ambiente EGIT di Eclipse.">
 </div>
-<div class="title">Figure 161. Eclipse&#8217;s EGit environment.</div>
+<div class="title">Figure 161. L&#8217;ambiente EGIT di Eclipse.</div>
 </div>
 <div class="paragraph">
-<p>EGit comes with plenty of great documentation, which you can find by going to Help &gt; Help Contents, and choosing the "EGit Documentation" node from the contents listing.</p>
+<p>EGit ha molta ottima documentazione che puoi consultare andando su Help &gt; Help Contents, e scegliendo il nodo "EGit Documentation" dall&#8217;elenco dei contenuti.</p>
 </div>
 </div>
 <div class="sect2">
@@ -21707,14 +21707,14 @@ Then open a Powershell prompt as the administrator, and do this:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_embedding_git_in_your_applications">Appendix B: Embedding Git in your Applications</h2>
+<h2 id="_integrare_git_nelle_tua_applicazioni">Appendix B: Integrare Git nelle tua applicazioni</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If your application is for developers, chances are good that it could benefit from integration with source control.
-Even non-developer applications, such as document editors, could potentially benefit from version-control features, and Git&#8217;s model works very well for many different scenarios.</p>
+<p>Se la tua applicazione è destinata agli sviluppatori è probabile che possa beneficiare dell&#8217;integrazione con il controllo dei sorgenti
+Anche le applicazioni non per sviluppatori, come gli elaboratori di testo, possono beneficiare delle caratteristiche del controllo di versione, e il modello di Git funziona benissimo in molti scenari diversi.</p>
 </div>
 <div class="paragraph">
-<p>If you need to integrate Git with your application, you have essentially three choices: spawning a shell and using the Git command-line tool; Libgit2; and JGit.</p>
+<p>Se devi integrare Git nella tua applicazione hai, essenzialmente, tre opzioni: riprodurre un terminale e usare gli strumenti di Git per la riga di comando; Libgit2; o JGit.</p>
 </div>
 <div class="sect2">
 <h3 id="_command_line_git">Command-line Git</h3>
@@ -22957,7 +22957,7 @@ These are standard Javadoc, so your favorite JVM IDE will be able to install the
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-01 10:01:54 GMT
+Last updated 2015-03-01 12:05:47 GMT
 </div>
 </div>
 </body>
