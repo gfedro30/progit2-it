@@ -423,12 +423,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_getting_started">Per iniziare</a>
 <ul class="sectlevel2">
 <li><a href="#_il_controllo_di_versione">Il controllo di versione</a></li>
-<li><a href="#_a_short_history_of_git">A Short History of Git</a></li>
+<li><a href="#_breve_storia_di_git">Breve storia di Git</a></li>
 <li><a href="#_i_fondamentali_di_git">I fondamentali di Git</a></li>
-<li><a href="#_the_command_line">The Command Line</a></li>
+<li><a href="#_la_riga_di_comando">La riga di comando</a></li>
 <li><a href="#_installing_git">Installing Git</a></li>
 <li><a href="#_first_time">First-Time Git Setup</a></li>
-<li><a href="#_git_help">Getting Help</a></li>
+<li><a href="#_git_help">Chiedere aiuto</a></li>
 <li><a href="#_riepilogo">Riepilogo</a></li>
 </ul>
 </li>
@@ -741,42 +741,44 @@ Questo ti permette di avere diversi tipi di flussi di lavoro, che non sono possi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_a_short_history_of_git">A Short History of Git</h3>
+<h3 id="_breve_storia_di_git">Breve storia di Git</h3>
 <div class="paragraph">
-<p>As with many great things in life, Git began with a bit of creative destruction and fiery controversy.</p>
+<p>Come moltre altre grandi cose della vita, Git è iniziato con un po' di distruzione creative e polemiche infuocate.</p>
 </div>
 <div class="paragraph">
-<p>The Linux kernel is an open source software project of fairly large scope.
-For most of the lifetime of the Linux kernel maintenance (1991–2002), changes to the software were passed around as patches and archived files.
-In 2002, the Linux kernel project began using a proprietary DVCS called BitKeeper.</p>
+<p>Il kernel di Linux è un progetto Open Source di larga portata . Le modifiche al kernel di Linux, per buona parte della sua vita di manutenzione (1991-2002), venivano scambiate passandole sotto forma di patch e archivi.
+Nel 200 il progetto del kernel di Linux iniziò a usare un DVCS proprietario, chiamato BitKeeper.</p>
 </div>
 <div class="paragraph">
-<p>In 2005, the relationship between the community that developed the Linux kernel and the commercial company that developed BitKeeper broke down, and the tool&#8217;s free-of-charge status was revoked.
-This prompted the Linux development community (and in particular Linus Torvalds, the creator of Linux) to develop their own tool based on some of the lessons they learned while using BitKeeper.
-Some of the goals of the new system were as follows:</p>
+<p>Nel 2005 la relazione tra la comunità che sviluppava il kernel e la compagnia che sviluppava BitKeeper si ruppe, e venne revocato l&#8217;uso gratuiro dello strumento.
+Ciò indusse la comunità di sviluppatori di Linux (e in particolare Linus Torvalds, il creatore di Linux) a sviluppare uno proprio strumento, basandosi su alcune delle lezioni apprese durante l&#8217;uso di BitKeeper. Alcuni degli obiettivi del nuovo sistema erano i seguenti:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Speed</p>
+<p>Veloce</p>
 </li>
 <li>
-<p>Simple design</p>
+<p>Design semplice</p>
 </li>
 <li>
-<p>Strong support for non-linear development (thousands of parallel branches)</p>
+<p>Ottimo supporto allo sviluppo non-lineare (migliaia di rami paralleli)</p>
 </li>
 <li>
-<p>Fully distributed</p>
+<p>Completamente distribuito</p>
 </li>
 <li>
-<p>Able to handle large projects like the Linux kernel efficiently (speed and data size)</p>
+<p>Capace di gestire in modo efficiente (per velocità e dimensione dei dati) grandi progetti come il kernel Linux</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Since its birth in 2005, Git has evolved and matured to be easy to use and yet retain these initial qualities.
-It&#8217;s incredibly fast, it&#8217;s very efficient with large projects, and it has an incredible branching system for non-linear development (See <a href="#_git_branching">Git Branching</a>).</p>
+<p>Fin dalla sua nascita nel 2005, Git si è evoluto ed è maturato per essere facile da usare, mantenendo tuttavia le sue qualità iniziali.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>È incredibilmente veloce, è molto efficiente con progetti grandi e ha un incredibile sistema di ramificazioni per lo sviluppo non lineare (Vedi &lt;&lt;_git_branching&gt;&gt;).</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -949,18 +951,18 @@ In <a href="#_git_basics_chapter">Git Basics</a>, you&#8217;ll learn more about 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_the_command_line">The Command Line</h3>
+<h3 id="_la_riga_di_comando">La riga di comando</h3>
 <div class="paragraph">
-<p>There are a lot of different ways to use Git.
-There are the original command line tools, and there are many graphical user interfaces of varying capabilities.
-For this book, we will be using Git on the command line.
-For one, the command line is the only place you can run <strong>all</strong> Git commands – most of the GUIs only implement some subset of Git functionality for simplicity.
-If you know how to run the command line version, you can probably also figure out how to run the GUI version, while the opposite is not necessarily true.
-Also, while your choice of graphical client is a matter of personal taste, <em>all</em> users will have the command-line tools installed and available.</p>
+<p>Ci sono molti modi diversi di usare Git.
+C&#8217;è la linea di comando originale e ci sono molte interfacce grafiche ciascuna con le proprie capacità.
+Per questo manuale useremo la riga di comando di Git.
+Principalmente perché la riga di comando è l&#8217;unico posto dove puoi eseguire <strong>tutti</strong>  i comandi di Git. Molte interfacce grafiche, per semplificare, implementano solo una parte delle funzionalità di Git.
+Se sai cosa fare sulla riga di comando, molto probabilmente saprai usare anche l&#8217;interfaccia grafica, ma non è necessariamente vero l&#8217;opposto.
+Inoltre l&#8217;interfaccia grafica è qualosa che rispecchia un gusto personale, mentre <em>tutti</em> gli utenti avranno installata e disponibile la riga di comando.</p>
 </div>
 <div class="paragraph">
-<p>So we will expect you to know how to open Terminal in Mac or Command Prompt or Powershell in Windows.
-If you don&#8217;t know what we&#8217;re talking about here, you may need to stop and research that quickly so that you can follow the rest of the examples and descriptions in this book.</p>
+<p>Quindi il requisito minimo che ci aspettiamo tu abbia è saper aprire il Terminale in Mac o il Prompt dei comandi o la Powershell in Windows.
+Se non sai di cosa stiamo parlando, dovresti fermarti qui e fare una ricerca veloce su come fare, in modo che possa seguire il resto degli esempi e delle descrizioni di questo manuale.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1213,9 +1215,9 @@ John Doe</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_git_help">Getting Help</h3>
+<h3 id="_git_help">Chiedere aiuto</h3>
 <div class="paragraph">
-<p>If you ever need help while using Git, there are three ways to get the manual page (manpage) help for any of the Git commands:</p>
+<p>Se dovessi avere bisogno di aiuto durante l&#8217;uso di Git, ci sono tre modi per visualizzare la pagina di aiuto (pagina man) di ciascun comando di Git, direttamente dal manuale.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1225,7 +1227,7 @@ $ man git-&lt;verb&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, you can get the manpage help for the config command by running</p>
+<p>Puoi, per esempio, leggere la pagina man del comando config eseguendo</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1233,9 +1235,9 @@ $ man git-&lt;verb&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>These commands are nice because you can access them anywhere, even offline.
-If the manpages and this book aren&#8217;t enough and you need in-person help, you can try the <code>#git</code> or <code>#github</code> channel on the Freenode IRC server (irc.freenode.net).
-These channels are regularly filled with hundreds of people who are all very knowledgeable about Git and are often willing to help.</p>
+<p>Questi comandi sono belli perché puoi accedervi da qualsiasi posto, anche se non sei collegato
+Se le pagine del manuale e questo libro non fossero necessari e hai bisogno di un aiuto di una persona, puoi provare nei canali irc <code>#git</code> o <code>#github</code> del server Freenode IRC (irc.freenode.net).
+In questi canali ci sono normalmente centinaia di persone esperte di Git che sono spesso disponibili ad aiutare gli altri.</p>
 </div>
 </div>
 <div class="sect2">
@@ -22286,7 +22288,7 @@ These are standard Javadoc, so your favorite JVM IDE will be able to install the
 <p>The <code>git help</code> command is used to show you all the documentation shipped with Git about any command. While we&#8217;re giving a rough overview of most of the more popular ones in this appendix, for a full listing of all of the possible options and flags for every command, you can always run <code>git help &lt;command&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>We introduced the <code>git help</code> command in <a href="#_git_help">Getting Help</a> and showed you how to use it to find more information about the <code>git shell</code> in <a href="#_setting_up_server">Setting Up the Server</a>.</p>
+<p>We introduced the <code>git help</code> command in <a href="#_git_help">Chiedere aiuto</a> and showed you how to use it to find more information about the <code>git shell</code> in <a href="#_setting_up_server">Setting Up the Server</a>.</p>
 </div>
 </div>
 </div>
@@ -22955,7 +22957,7 @@ These are standard Javadoc, so your favorite JVM IDE will be able to install the
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-01 09:12:12 GMT
+Last updated 2015-03-01 10:01:54 GMT
 </div>
 </div>
 </body>
