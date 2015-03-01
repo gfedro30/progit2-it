@@ -469,12 +469,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_summary_3">Summary</a></li>
 </ul>
 </li>
-<li><a href="#_distributed_git">Distributed Git</a>
+<li><a href="#_distributed_git">Git Distribuito</a>
 <ul class="sectlevel2">
 <li><a href="#_distributed_workflows">Distributed Workflows</a></li>
 <li><a href="#_contributing_project">Contributing to a Project</a></li>
 <li><a href="#_maintaining_a_project">Maintaining a Project</a></li>
-<li><a href="#_summary_5">Summary</a></li>
+<li><a href="#_riepilogo_2">Riepilogo</a></li>
 </ul>
 </li>
 <li><a href="#_github">GitHub</a>
@@ -484,7 +484,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_maintaining_gh_project">Maintaining a Project</a></li>
 <li><a href="#_github_orgs">Managing an organization</a></li>
 <li><a href="#_scripting_github">Scripting GitHub</a></li>
-<li><a href="#_summary_6">Summary</a></li>
+<li><a href="#_summary_5">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_git_tools">Git Tools</a>
@@ -503,7 +503,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_bundling">Bundling</a></li>
 <li><a href="#_replace">Replace</a></li>
 <li><a href="#_credential_caching">Credential Storage</a></li>
-<li><a href="#_summary_8">Summary</a></li>
+<li><a href="#_summary_7">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_customizing_git">Customizing Git</a>
@@ -512,14 +512,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_git_attributes">Git Attributes</a></li>
 <li><a href="#_git_hooks">Git Hooks</a></li>
 <li><a href="#_an_example_git_enforced_policy">An Example Git-Enforced Policy</a></li>
-<li><a href="#_summary_9">Summary</a></li>
+<li><a href="#_summary_8">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_git_and_other_systems">Git and Other Systems</a>
 <ul class="sectlevel2">
 <li><a href="#_git_as_a_client">Git as a Client</a></li>
 <li><a href="#_migrating">Migrating to Git</a></li>
-<li><a href="#_summary_10">Summary</a></li>
+<li><a href="#_summary_9">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_git_internals">Git Internals</a>
@@ -532,7 +532,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_transfer_protocols">Transfer Protocols</a></li>
 <li><a href="#_maintenance_and_data_recovery">Maintenance and Data Recovery</a></li>
 <li><a href="#_environment_variables">Environment Variables</a></li>
-<li><a href="#_summary_11">Summary</a></li>
+<li><a href="#_summary_10">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_git_in_other_environments">Appendix A: Git in Other Environments</a>
@@ -543,7 +543,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_git_in_bash">Git in Bash</a></li>
 <li><a href="#_git_in_zsh">Git in Zsh</a></li>
 <li><a href="#_git_powershell">Git in Powershell</a></li>
-<li><a href="#_summary_13">Summary</a></li>
+<li><a href="#_summary_12">Summary</a></li>
 </ul>
 </li>
 <li><a href="#_integrare_git_nelle_tua_applicazioni">Appendix B: Integrare Git nelle tua applicazioni</a>
@@ -2239,7 +2239,7 @@ a11bef0 - Scott Chacon, 6 years ago : first commit</code></pre>
 <p>You may be wondering what the difference is between <em>author</em> and <em>committer</em>.
 The author is the person who originally wrote the work, whereas the committer is the person who last applied the work.
 So, if you send in a patch to a project and one of the core members applies the patch, both of you get credit – you as the author, and the core member as the committer.
-We&#8217;ll cover this distinction a bit more in <a href="#_distributed_git">Distributed Git</a>.</p>
+We&#8217;ll cover this distinction a bit more in <a href="#_distributed_git">Git Distribuito</a>.</p>
 </div>
 <div class="paragraph">
 <p>The oneline and format options are particularly useful with another <code>log</code> option called <code>--graph</code>.
@@ -3990,7 +3990,7 @@ Your history then looks like this:</p>
 <div class="title">Figure 29. History after merging <code>dumbidea</code> and <code>iss91v2</code></div>
 </div>
 <div class="paragraph">
-<p>We will go into more detail about the various possible workflows for your Git project in <a href="#_distributed_git">Distributed Git</a>, so before you decide which branching scheme your next project will use, be sure to read that chapter.</p>
+<p>We will go into more detail about the various possible workflows for your Git project in <a href="#_distributed_git">Git Distribuito</a>, so before you decide which branching scheme your next project will use, be sure to read that chapter.</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s important to remember when you&#8217;re doing all this that these branches are completely local.
@@ -5651,15 +5651,15 @@ If you place your data on a hosted server, it&#8217;s easy to set up and maintai
 </div>
 </div>
 <div class="sect1">
-<h2 id="_distributed_git">Distributed Git</h2>
+<h2 id="_distributed_git">Git Distribuito</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>
-Now that you have a remote Git repository set up as a point for all the developers to share their code, and you&#8217;re familiar with basic Git commands in a local workflow, you&#8217;ll look at how to utilize some of the distributed workflows that Git affords you.</p>
+Ora che hai configurato un repository remoto di Git come punto principale per tutti gli sviluppatori per condividere il proprio codice e hai preso confidenza con nozioni essenziali dei comandi di Git lavorando in locale, vedremo come usare alcuni dei flussi di lavoro distribuiti che Git supporta.</p>
 </div>
 <div class="paragraph">
-<p>In this chapter, you&#8217;ll see how to work with Git in a distributed environment as a contributor and an integrator.
-That is, you&#8217;ll learn how to contribute code successfully to a project and make it as easy on you and the project maintainer as possible, and also how to maintain a project successfully with a number of developers contributing.</p>
+<p>In questo capitolo vedremo come si lavora con Git in un ambiente distribuito come partecipante o integratore.
+Imparerai quindi come contribuire a un progetto col tuo codice e renderlo facile per te e per chi manutiene il progetto, e anche come manutenere un progetto con molti sviluppatori che vi contribuiscono.</p>
 </div>
 <div class="sect2">
 <h3 id="_distributed_workflows">Distributed Workflows</h3>
@@ -7331,11 +7331,11 @@ Tom Preston-Werner (4):
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_5">Summary</h3>
+<h3 id="_riepilogo_2">Riepilogo</h3>
 <div class="paragraph">
-<p>You should feel fairly comfortable contributing to a project in Git as well as maintaining your own project or integrating other users' contributions.
-Congratulations on being an effective Git developer!
-In the next chapter, you&#8217;ll learn about how to use the largest and most popular Git hosting service, GitHub.</p>
+<p>Dovresti ora avere dimestichezza su come contribuire a un progetto con Git, così come manutenere un tuo progetto o integrare i contributi di altri utenti.
+Congratulazioni per essere uno sviluppatore Git!
+Nel prossimo capitolo imparerai come usare il principale e più famoso servizio di hosting di Git, GitHub.</p>
 </div>
 </div>
 </div>
@@ -7730,7 +7730,7 @@ If we click that green button, we&#8217;ll see a screen that allows us to create
 <p>At this point, the project owner can look at the suggested change and merge it, reject it or comment on it. Let&#8217;s say that he likes the idea, but would prefer a slightly longer time for the light to be off than on.</p>
 </div>
 <div class="paragraph">
-<p>Where this conversation may take place over email in the workflows presented in <a href="#_distributed_git">Distributed Git</a>, on GitHub this happens online. The project owner can review the unified diff and leave a comment by clicking on any of the lines.</p>
+<p>Where this conversation may take place over email in the workflows presented in <a href="#_distributed_git">Git Distribuito</a>, on GitHub this happens online. The project owner can review the unified diff and leave a comment by clicking on any of the lines.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -9032,7 +9032,7 @@ For complete documentation on the entire API as well as guides for common tasks,
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_6">Summary</h3>
+<h3 id="_summary_5">Summary</h3>
 <div class="paragraph">
 <p>Now you&#8217;re a GitHub user.
 You know how to create an account, manage an organization, create and push to repositories, contribute to other peoples projects and accept contributions from others.
@@ -11192,7 +11192,7 @@ It would be exactly like <code>git reset --hard [branch] file</code> (if <code>r
 </div>
 </div>
 <div class="sect3">
-<h4 id="_summary_7">Summary</h4>
+<h4 id="_summary_6">Summary</h4>
 <div class="paragraph">
 <p>Hopefully now you understand and feel more comfortable with the <code>reset</code> command, but are probably still a little confused about how exactly it differs from <code>checkout</code> and could not possibly remember all the rules of the different invocations.</p>
 </div>
@@ -14261,7 +14261,7 @@ password=s3cre7</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_8">Summary</h3>
+<h3 id="_summary_7">Summary</h3>
 <div class="paragraph">
 <p>You’ve seen a number of advanced tools that allow you to manipulate your commits and staging area more precisely.
 When you notice issues, you should be able to easily figure out what commit introduced them, when, and by whom.
@@ -15936,7 +15936,7 @@ However, it&#8217;s an interesting exercise and can in theory help you avoid a r
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_9">Summary</h3>
+<h3 id="_summary_8">Summary</h3>
 <div class="paragraph">
 <p>We&#8217;ve covered most of the major ways that you can customize your Git client and server to best fit your workflow and projects.
 You&#8217;ve learned about all sorts of configuration settings, file-based attributes, and event hooks, and you&#8217;ve built an example policy-enforcing server.
@@ -19108,7 +19108,7 @@ A number of examples of more complex scenarios are available in the <code>contri
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_10">Summary</h3>
+<h3 id="_summary_9">Summary</h3>
 <div class="paragraph">
 <p>You should feel comfortable using Git as a client for other version-control systems, or importing nearly any existing repository into Git without losing data.
 In the next chapter, we&#8217;ll cover the raw internals of Git so you can craft every single byte, if need be.</p>
@@ -21246,7 +21246,7 @@ $ git reflog -1
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_11">Summary</h3>
+<h3 id="_summary_10">Summary</h3>
 <div class="paragraph">
 <p>You should have a pretty good understanding of what Git does in the background and, to some degree, how it&#8217;s implemented.
 This chapter has covered a number of plumbing commands – commands that are lower level and simpler than the porcelain commands you&#8217;ve learned about in the rest of the book.
@@ -21480,7 +21480,7 @@ If this fails because of a merge conflict, fall back to <code>git pull --no-reba
 </div>
 </div>
 <div class="sect4">
-<h5 id="_summary_12">Summary</h5>
+<h5 id="_summary_11">Summary</h5>
 <div class="paragraph">
 <p>These tools are very well-suited for the workflow they&#8217;re designed for.
 Developers and non-developers alike can be collaborating on a project within minutes, and many of the best practices for this kind of workflow are baked into the tools.
@@ -21699,7 +21699,7 @@ Then open a Powershell prompt as the administrator, and do this:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_summary_13">Summary</h3>
+<h3 id="_summary_12">Summary</h3>
 <div class="paragraph">
 <p>You&#8217;ve learned how to harness Git&#8217;s power from inside the tools that you use during your everyday work, and also how to access Git repositories from your own programs.</p>
 </div>
@@ -22957,7 +22957,7 @@ These are standard Javadoc, so your favorite JVM IDE will be able to install the
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-01 12:05:47 GMT
+Last updated 2015-03-01 12:20:11 GMT
 </div>
 </div>
 </body>
