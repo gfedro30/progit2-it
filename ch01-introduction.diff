@@ -1,0 +1,856 @@
+1,2c1
+< [[ch01-getting-started]]
+< == Getting Started
+---
+> # Getting Started #
+7a7
+> ## About Version Control ##
+9,13c9
+<
+< === About Version Control
+<
+< (((version control)))
+< What is ``version control'', and why should you care?
+---
+> What is version control, and why should you care?
+15c11
+< For the examples in this book, you will use software source code as the files being version controlled, though in reality you can do this with nearly any type of file on a computer.
+---
+> Even though the examples in this book show software source code as the files under version control, in reality any type of file on a computer can be placed under version control.
+17,19c13,15
+< If you are a graphic or web designer and want to keep every version of an image or layout (which you would most certainly want to), a Version Control System (VCS) is a very wise thing to use.
+< It allows you to revert selected files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more.
+< Using a VCS also generally means that if you screw things up or lose files, you can easily recover.
+---
+> If you are a graphic or web designer and want to keep every version of an image or layout (which you certainly would), it is very wise to use a Version Control System (VCS).
+> A VCS allows you to: revert files back to a previous state, revert the entire project back to a previous state, review changes made over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more.
+> Using a VCS also means that if you screw things up or lose files, you can generally recover easily.
+22c18
+< ==== Local Version Control Systems
+---
+> ### Local Version Control Systems ###
+24,25c20
+< (((version control,local)))
+< Many people's version-control method of choice is to copy files into another directory (perhaps a time-stamped directory, if they're clever).
+---
+> Many people’s version-control method of choice is to copy files into another directory (perhaps a time-stamped directory, if they’re clever).
+27c22
+< It is easy to forget which directory you're in and accidentally write to the wrong file or copy over files you don't mean to.
+---
+> It is easy to forget which directory you’re in and accidentally write to the wrong file or copy over files you don’t mean to.
+29c24
+< To deal with this issue, programmers long ago developed local VCSs that had a simple database that kept all the changes to files under revision control.
+---
+> To deal with this issue, programmers long ago developed local VCSs that had a simple database that kept all the changes to files under revision control (see Figure 1-1).
+31,32c26,27
+< .Local version control.
+< image::images/local.png[Local version control diagram]
+---
+> Insert 18333fig0101.png
+> Figure 1-1. Local version control diagram.
+34,35c29,31
+< One of the most popular VCS tools was a system called RCS, which is still distributed with many computers today.
+< RCS works by keeping patch sets (that is, the differences between files) in a special format on disk; it can then re-create what any file looked like at any point in time by adding up all the patches.
+---
+> One of the more popular VCS tools was a system called rcs, which is still distributed with many computers today.
+> Even the popular Mac OS X operating system includes the rcs command when you install the Developer Tools.
+> This tool basically works by keeping patch sets (that is, the differences between files) from one revision to another in a special format on disk; it can then recreate what any file looked like at any point in time by adding up all the patches.
+37c33
+< ==== Centralized Version Control Systems
+---
+> ### Centralized Version Control Systems ###
+39d34
+< (((version control,centralized)))
+42,43c37,38
+< These systems (such as CVS, Subversion, and Perforce) have a single server that contains all the versioned files, and a number of clients that check out files from that central place. (((CVS)))(((Subversion)))(((Perforce)))
+< For many years, this has been the standard for version control.
+---
+> These systems, such as CVS, Subversion, and Perforce, have a single server that contains all the versioned files, and a number of clients that check out files from that central place.
+> For many years, this has been the standard for version control (see Figure 1-2).
+45,46c40,41
+< .Centralized version control.
+< image::images/centralized.png[Centralized version control diagram]
+---
+> Insert 18333fig0102.png
+> Figure 1-2. Centralized version control diagram.
+50c45
+< Administrators have fine-grained control over who can do what, and it's far easier to administer a CVCS than it is to deal with local databases on every client.
+---
+> Administrators have fine-grained control over who can do what; and it’s far easier to administer a CVCS than it is to deal with local databases on every client.
+54,56c49,51
+< If that server goes down for an hour, then during that hour nobody can collaborate at all or save versioned changes to anything they're working on.
+< If the hard disk the central database is on becomes corrupted, and proper backups haven't been kept, you lose absolutely everything -- the entire history of the project except whatever single snapshots people happen to have on their local machines.
+< Local VCS systems suffer from this same problem -- whenever you have the entire history of the project in a single place, you risk losing everything.
+---
+> If that server goes down for an hour, then during that hour nobody can collaborate at all or save versioned changes to anything they’re working on.
+> If the hard disk the central database is on becomes corrupted, and proper backups haven’t been kept, you lose absolutely everything—the entire history of the project except whatever single snapshots people happen to have on their local machines.
+> Local VCS systems suffer from this same problem—whenever you have the entire history of the project in a single place, you risk losing everything.
+58c53
+< ==== Distributed Version Control Systems
+---
+> ### Distributed Version Control Systems ###
+60d54
+< (((version control,distributed)))
+62,64c56,58
+< In a DVCS (such as Git, Mercurial, Bazaar or Darcs), clients don't just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history.
+< Thus, if any server dies, and these systems were collaborating via that server, any of the client repositories can be copied back up to the server to restore it.
+< Every clone is really a full backup of all the data.
+---
+> In a DVCS (such as Git, Mercurial, Bazaar or Darcs), clients don’t just check out the latest snapshot of the files: they fully mirror the repository.
+> Thus if any server dies, and these systems were collaborating via it, any of the client repositories can be copied back up to the server to restore it.
+> Every checkout is really a full backup of all the data (see Figure 1-3).
+66,67c60,61
+< .Distributed version control.
+< image::images/distributed.png[Distributed version control diagram]
+---
+> Insert 18333fig0103.png
+> Figure 1-3. Distributed version control diagram.
+70,71c64
+< This allows you to set up several types of workflows that aren't possible in centralized systems, such as hierarchical models.
+<
+---
+> This allows you to set up several types of workflows that aren’t possible in centralized systems, such as hierarchical models.
+73,74c66
+<
+< === A Short History of Git
+---
+> ## A Short History of Git ##
+78c70
+< The Linux kernel is an open source software project of fairly large scope.(((Linux)))
+---
+> The Linux kernel is an open source software project of fairly large scope.
+80c72
+< In 2002, the Linux kernel project began using a proprietary DVCS called BitKeeper.(((BitKeeper)))
+---
+> In 2002, the Linux kernel project began using a proprietary DVCS system called BitKeeper.
+82,84c74,76
+< In 2005, the relationship between the community that developed the Linux kernel and the commercial company that developed BitKeeper broke down, and the tool's free-of-charge status was revoked.
+< This prompted the Linux development community (and in particular Linus Torvalds, the creator of Linux) to develop their own tool based on some of the lessons they learned while using BitKeeper.(((Linus Torvalds)))
+< Some of the goals of the new system were as follows:
+---
+> In 2005, the relationship between the community that developed the Linux kernel and the commercial company that developed BitKeeper broke down, and the tool’s free-of-charge status was revoked.
+>  This prompted the Linux development community (and in particular Linus Torvalds, the creator of Linux) to develop their own tool based on some of the lessons they learned while using BitKeeper.
+>  Some of the goals of the new system were as follows:
+93c85
+< It's amazingly fast, it's very efficient with large projects, and it has an incredible branching system for non-linear development (See <<ch03-git-branching#ch03-git-branching>>).
+---
+>  It’s incredibly fast, it’s very efficient with large projects, and it has an incredible branching system for non-linear development (See Chapter 3).
+94a87
+> ## Git Basics ##
+95a89,91
+> So, what is Git in a nutshell? This is an important section to absorb, because if you understand what Git is and the fundamentals of how it works, then using Git effectively will probably be much easier for you.
+>  As you learn Git, try to clear your mind of the things you may know about other VCSs, such as Subversion and Perforce; doing so will help you avoid subtle confusion when using the tool.
+>  Git stores and thinks about information much differently than these other systems, even though the user interface is fairly similar; understanding those differences will help prevent you from becoming confused while using it.
+98c94
+< === What is Git?
+---
+> ### Snapshots, Not Differences ###
+100,103c96,98
+< So, what is Git in a nutshell?
+< This is an important section to absorb, because if you understand what Git is and the fundamentals of how it works, then using Git effectively will probably be much easier for you.
+< As you learn Git, try to clear your mind of the things you may know about other VCSs, such as CVS, Subversion or Perforce -- doing so will help you avoid subtle confusion when using the tool.
+< Even though Git's user interface is fairly similar to these other VCSs, Git stores and thinks about information in a very different way, and understanding these differences will help you avoid becoming confused while using it.(((Subversion)))(((Perforce)))
+---
+> The major difference between Git and any other VCS (Subversion and friends included) is the way Git thinks about its data.
+>  Conceptually, most other systems store information as a list of file-based changes.
+>  These systems (CVS, Subversion, Perforce, Bazaar, and so on) think of the information they keep as a set of files and the changes made to each file over time, as illustrated in Figure 1-4.
+105d99
+< ==== Snapshots, Not Differences
+107,109c101,102
+< The major difference between Git and any other VCS (Subversion and friends included) is the way Git thinks about its data.
+< Conceptually, most other systems store information as a list of file-based changes.
+< These other systems (CVS, Subversion, Perforce, Bazaar, and so on) think of the information they store as a set of files and the changes made to each file over time (this is commonly described as _delta-based_ version control).
+---
+> Insert 18333fig0104.png
+> Figure 1-4. Other systems tend to store data as changes to a base version of each file.
+111,112c104,108
+< .Storing data as changes to a base version of each file.
+< image::images/deltas.png[Storing data as changes to a base version of each file.]
+---
+> Git doesn’t think of or store its data this way.
+>  Instead, Git thinks of its data more like a set of snapshots of a mini filesystem.
+>  Every time you commit, or save the state of your project in Git, it basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
+>  To be efficient, if files have not changed, Git doesn’t store the file again—just a link to the previous identical file it has already stored.
+>  Git thinks about its data more like Figure 1-5.
+114,118d109
+< Git doesn't think of or store its data this way.
+< Instead, Git thinks of its data more like a series of snapshots of a miniature filesystem.
+< With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
+< To be efficient, if files have not changed, Git doesn't store the file again, just a link to the previous identical file it has already stored.
+< Git thinks about its data more like a *stream of snapshots*.
+120,121c111,112
+< .Storing data as snapshots of the project over time.
+< image::images/snapshots.png[Git stores data as snapshots of the project over time.]
+---
+> Insert 18333fig0105.png
+> Figure 1-5. Git stores data as snapshots of the project over time.
+124,159c115,117
+< It makes Git reconsider almost every aspect of version control that most other systems copied from the previous generation.
+< This makes Git more like a mini filesystem with some incredibly powerful tools built on top of it, rather than simply a VCS.
+< We'll explore some of the benefits you gain by thinking of your data this way when we cover Git branching in <<ch03-git-branching#ch03-git-branching>>.
+<
+< ==== Nearly Every Operation Is Local
+<
+< Most operations in Git need only local files and resources to operate -- generally no information is needed from another computer on your network.
+< If you're used to a CVCS where most operations have that network latency overhead, this aspect of Git will make you think that the gods of speed have blessed Git with unworldly powers.
+< Because you have the entire history of the project right there on your local disk, most operations seem almost instantaneous.
+<
+< For example, to browse the history of the project, Git doesn't need to go out to the server to get the history and display it for you -- it simply reads it directly from your local database.
+< This means you see the project history almost instantly.
+< If you want to see the changes introduced between the current version of a file and the file a month ago, Git can look up the file a month ago and do a local difference calculation, instead of having to either ask a remote server to do it or pull an older version of the file from the remote server to do it locally.
+<
+< This also means that there is very little you can't do if you're offline or off VPN.
+< If you get on an airplane or a train and want to do a little work, you can commit happily (to your _local_ copy, remember?) until you get to a network connection to upload.
+< If you go home and can't get your VPN client working properly, you can still work.
+< In many other systems, doing so is either impossible or painful.
+< In Perforce, for example, you can't do much when you aren't connected to the server; in Subversion and CVS, you can edit files, but you can't commit changes to your database (because your database is offline).
+< This may not seem like a huge deal, but you may be surprised what a big difference it can make.
+<
+< ==== Git Has Integrity
+<
+< Everything in Git is checksummed before it is stored and is then referred to by that checksum.
+< This means it's impossible to change the contents of any file or directory without Git knowing about it.
+< This functionality is built into Git at the lowest levels and is integral to its philosophy.
+< You can't lose information in transit or get file corruption without Git being able to detect it.
+<
+< The mechanism that Git uses for this checksumming is called a SHA-1 hash.(((SHA-1)))
+< This is a 40-character string composed of hexadecimal characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git.
+< A SHA-1 hash looks something like this:
+<
+< [source]
+< ----
+< 24b9da6552252987aa493b52f8696cd6d3b00373
+< ----
+---
+>  It makes Git reconsider almost every aspect of version control that most other systems copied from the previous generation.
+>  This makes Git more like a mini filesystem with some incredibly powerful tools built on top of it, rather than simply a VCS.
+>  We’ll explore some of the benefits you gain by thinking of your data this way when we cover Git branching in Chapter 3.
+161,162d118
+< You will see these hash values all over the place in Git because it uses them so much.
+< In fact, Git stores everything in its database not by file name but by the hash value of its contents.
+164c120
+< ==== Git Generally Only Adds Data
+---
+> ### Nearly Every Operation Is Local ###
+166,168c122,124
+< When you do actions in Git, nearly all of them only _add_ data to the Git database.
+< It is hard to get the system to do anything that is not undoable or to make it erase data in any way.
+< As with any VCS, you can lose or mess up changes you haven't committed yet, but after you commit a snapshot into Git, it is very difficult to lose, especially if you regularly push your database to another repository.
+---
+> Most operations in Git only need local files and resources to operate — generally no information is needed from another computer on your network.
+>   If you’re used to a CVCS where most operations have that network latency overhead, this aspect of Git will make you think that the gods of speed have blessed Git with unworldly powers.
+>  Because you have the entire history of the project right there on your local disk, most operations seem almost instantaneous.
+170,171d125
+< This makes using Git a joy because we know we can experiment without the danger of severely screwing things up.
+< For a more in-depth look at how Git stores its data and how you can recover data that seems lost, see <<ch02-git-basics-chapter#_undoing>>.
+173c127,129
+< ==== The Three States
+---
+> For example, to browse the history of the project, Git doesn’t need to go out to the server to get the history and display it for you—it simply reads it directly from your local database.
+>  This means you see the project history almost instantly.
+>  If you want to see the changes introduced between the current version of a file and the file a month ago, Git can look up the file a month ago and do a local difference calculation, instead of having to either ask a remote server to do it or pull an older version of the file from the remote server to do it locally.
+175,176d130
+< Pay attention now -- here is the main thing to remember about Git if you want the rest of your learning process to go smoothly.
+< Git has three main states that your files can reside in: _modified_, _staged_, and _committed_:
+178,180c132,137
+< * Modified means that you have changed the file but have not committed it to your database yet.
+< * Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+< * Committed means that the data is safely stored in your local database.
+---
+> This also means that there is very little you can’t do if you’re offline or off VPN.
+>  If you get on an airplane or a train and want to do a little work, you can commit happily until you get to a network connection to upload.
+>  If you go home and can’t get your VPN client working properly, you can still work.
+>  In many other systems, doing so is either impossible or painful.
+>  In Perforce, for example, you can’t do much when you aren’t connected to the server; and in Subversion and CVS, you can edit files, but you can’t commit changes to your database (because your database is offline).
+>  This may not seem like a huge deal, but you may be surprised what a big difference it can make.
+182d138
+< This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.
+184,185c140
+< .Working tree, staging area, and Git directory.
+< image::images/areas.png["Working tree, staging area, and Git directory."]
+---
+> ### Git Has Integrity ###
+187,188c142,145
+< The working tree is a single checkout of one version of the project.
+< These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+---
+> Everything in Git is check-summed before it is stored and is then referred to by that checksum.
+>  This means it’s impossible to change the contents of any file or directory without Git knowing about it.
+>  This functionality is built into Git at the lowest levels and is integral to its philosophy.
+>  You can’t lose information in transit or get file corruption without Git being able to detect it.
+190,191d146
+< The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit.
+< Its technical name in Git parlance is the ``index'', but the phrase ``staging area'' works just as well.
+193,194c148,150
+< The Git directory is where Git stores the metadata and object database for your project.
+< This is the most important part of Git, and it is what is copied when you _clone_ a repository from another computer.
+---
+> The mechanism that Git uses for this checksumming is called a SHA-1 hash.
+>  This is a 40-character string composed of hexadecimal characters (0–9 and a–f) and calculated based on the contents of a file or directory structure in Git.
+>  A SHA-1 hash looks something like this:
+196c152
+< The basic Git workflow goes something like this:
+---
+> 	24b9da6552252987aa493b52f8696cd6d3b00373
+198,200c154,166
+< 1. You modify files in your working tree.
+< 2. You selectively stage just those changes you want to be part of your next commit, which adds _only_ those changes to the staging area.
+< 3. You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+---
+> You will see these hash values all over the place in Git because it uses them so much.
+>  In fact, Git stores everything not by file name but in the Git database addressable by the hash value of its contents.
+>
+>
+> ### Git Generally Only Adds Data ###
+>
+> When you do actions in Git, nearly all of them only add data to the Git database.
+>  It is very difficult to get the system to do anything that is not undoable or to make it erase data in any way.
+>  As in any VCS, you can lose or mess up changes you haven’t committed yet; but after you commit a snapshot into Git, it is very difficult to lose, especially if you regularly push your database to another repository.
+>
+>
+> This makes using Git a joy because we know we can experiment without the danger of severely screwing things up.
+>  For a more in-depth look at how Git stores its data and how you can recover data that seems lost, see Chapter 9.
+202,205d167
+< If a particular version of a file is in the Git directory, it's considered _committed_.
+< If it has been modified and was added to the staging area, it is _staged_.
+< And if it was changed since it was checked out but has not been staged, it is _modified_.
+< In <<ch02-git-basics-chapter#ch02-git-basics-chapter>>, you'll learn more about these states and how you can either take advantage of them or skip the staged part entirely.
+206a169
+> ### The Three States ###
+207a171,176
+> Now, pay attention.
+>  This is the main thing to remember about Git if you want the rest of your learning process to go smoothly.
+>  Git has three main states that your files can reside in: committed, modified, and staged.
+>  Committed means that the data is safely stored in your local database.
+>  Modified means that you have changed the file but have not committed it to your database yet.
+>  Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+209a179
+> This leads us to the three main sections of a Git project: the Git directory, the working directory, and the staging area.
+211d180
+< === The Command Line
+213,218c182,183
+< There are a lot of different ways to use Git.
+< There are the original command-line tools, and there are many graphical user interfaces of varying capabilities.
+< For this book, we will be using Git on the command line.
+< For one, the command line is the only place you can run _all_ Git commands -- most of the GUIs implement only a partial subset of Git functionality for simplicity.
+< If you know how to run the command-line version, you can probably also figure out how to run the GUI version, while the opposite is not necessarily true.
+< Also, while your choice of graphical client is a matter of personal taste, _all_ users will have the command-line tools installed and available.
+---
+> Insert 18333fig0106.png
+> Figure 1-6. Working directory, staging area, and Git directory.
+220,221c185,186
+< So we will expect you to know how to open Terminal in macOS or Command Prompt or PowerShell in Windows.
+< If you don't know what we're talking about here, you may need to stop and research that quickly so that you can follow the rest of the examples and descriptions in this book.
+---
+> The Git directory is where Git stores the metadata and object database for your project.
+>  This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
+223a189,190
+> The working directory is a single checkout of one version of the project.
+>  These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+226c193,194
+< === Installing Git
+---
+> The staging area is a simple file, generally contained in your Git directory, that stores information about what will go into your next commit.
+>  It’s sometimes referred to as the index, but it’s becoming standard to refer to it as the staging area.
+228,230d195
+< Before you start using Git, you have to make it available on your computer.
+< Even if it's already installed, it's probably a good idea to update to the latest version.
+< You can either install it as a package or via another installer, or download the source code and compile it yourself.
+232,237c197
+< [NOTE]
+< ====
+< This book was written using Git version *2.8.0*.
+< Though most of the commands we use should work even in ancient versions of Git, some of them might not or might act slightly differently if you're using an older version.
+< Since Git is quite excellent at preserving backwards compatibility, any version after 2.0 should work just fine.
+< ====
+---
+> The basic Git workflow goes something like this:
+239c199,201
+< ==== Installing on Linux
+---
+> 1. You modify files in your working directory.
+> 2. You stage the files, adding snapshots of them to your staging area.
+> 3. You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+241,243c203,206
+< (((Linux, installing)))
+< If you want to install the basic Git tools on Linux via a binary installer, you can generally do so through the package management tool that comes with your distribution.
+< If you're on Fedora (or any closely-related RPM-based distribution, such as RHEL or CentOS), you can use `dnf`:
+---
+> If a particular version of a file is in the Git directory, it’s considered committed.
+>  If it’s modified but has been added to the staging area, it is staged.
+>  And if it was changed since it was checked out but has not been staged, it is modified.
+>  In Chapter 2, you’ll learn more about these states and how you can either take advantage of them or skip the staged part entirely.
+245,248d207
+< [source,console]
+< ----
+< $ sudo dnf install git-all
+< ----
+250c209
+< If you're on a Debian-based distribution, such as Ubuntu, try `apt`:
+---
+> ## Installing Git ##
+252,255c211,213
+< [source,console]
+< ----
+< $ sudo apt install git-all
+< ----
+---
+> Let’s get into using some Git.
+>  First things first—you have to install it.
+>  You can get it a number of ways; the two major ones are to install it from source or to install an existing package for your platform.
+257d214
+< For more options, there are instructions for installing on several different Unix distributions on the Git website, at https://git-scm.com/download/linux[].
+259c216
+< ==== Installing on macOS
+---
+> ### Installing from Source ###
+261,264c218,220
+< (((macOS, installing)))
+< There are several ways to install Git on a Mac.
+< The easiest is probably to install the Xcode Command Line Tools.(((Xcode)))
+< On Mavericks (10.9) or above you can do this simply by trying to run 'git' from the Terminal the very first time.
+---
+> If you can, it’s generally useful to install Git from source, because you’ll get the most recent version.
+>  Each version of Git tends to include useful UI enhancements, so getting the latest version is often the best route if you feel comfortable compiling software from source.
+>  It is also the case that many Linux distributions contain very old packages; so unless you’re on a very up-to-date distro or are using backports, installing from source may be the best bet.
+266,269d221
+< [source,console]
+< ----
+< $ git --version
+< ----
+271c223,224
+< If you don't have it installed already, it will prompt you to install it.
+---
+> To install Git, you need to have the following libraries that Git depends on: curl, zlib, openssl, expat, and libiconv.
+>  For example, if you’re on a system that has yum (such as Fedora) or apt-get (such as a Debian based system), you can use one of these commands to install all of the dependencies:
+273,274c226,227
+< If you want a more up to date version, you can also install it via a binary installer.
+< A macOS Git installer is maintained and available for download at the Git website, at https://git-scm.com/download/mac[].
+---
+> 	$ yum install curl-devel expat-devel gettext-devel \
+> 	  openssl-devel zlib-devel perl-devel asciidoc xmlto
+276,277c229,230
+< .Git macOS Installer.
+< image::images/git-osx-installer.png[Git macOS installer.]
+---
+> 	$ apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
+> 	  libz-dev libssl-dev
+279,281c232
+< You can also install it as part of the GitHub for macOS install.
+< Their GUI Git tool has an option to install command line tools as well.
+< You can download that tool from the GitHub for macOS website, at https://desktop.github.com[].
+---
+> When you have all the necessary dependencies, you can go ahead and grab the latest snapshot from the Git web site:
+283c234
+< ==== Installing on Windows
+---
+> 	http://git-scm.com/download
+285,288c236
+< There are also a few ways to install Git on Windows.(((Windows, installing)))
+< The most official build is available for download on the Git website.
+< Just go to https://git-scm.com/download/win[] and the download will start automatically.
+< Note that this is a project called Git for Windows, which is separate from Git itself; for more information on it, go to https://gitforwindows.org[].
+---
+> Then, compile and install:
+290,291c238,241
+< To get an automated installation you can use the https://chocolatey.org/packages/git[Git Chocolatey package].
+< Note that the Chocolatey package is community maintained.
+---
+> 	$ tar -zxf git-1.7.2.2.tar.gz
+> 	$ cd git-1.7.2.2
+> 	$ make prefix=/usr/local all
+> 	$ sudo make prefix=/usr/local install
+293,297c243
+< Another easy way to get Git installed is by installing GitHub Desktop.
+< The installer includes a command line version of Git as well as the GUI.
+< It also works well with PowerShell, and sets up solid credential caching and sane CRLF settings.(((PowerShell)))(((CRLF)))(((credential caching)))
+< We'll learn more about those things a little later, but suffice it to say they're things you want.
+< You can download this from the https://desktop.github.com[GitHub Desktop website].
+---
+> After this is done, you can also get Git via Git itself for updates:
+299c245
+< ==== Installing from Source
+---
+> 	$ git clone git://git.kernel.org/pub/scm/git/git.git
+301,302c247
+< Some people may instead find it useful to install Git from source, because you'll get the most recent version.
+< The binary installers tend to be a bit behind, though as Git has matured in recent years, this has made less of a difference.
+---
+> ### Installing on Linux ###
+304,305c249,250
+< If you do want to install Git from source, you need to have the following libraries that Git depends on: autotools, curl, zlib, openssl, expat, and libiconv.
+< For example, if you're on a system that has `dnf` (such as Fedora) or `apt-get` (such as a Debian-based system), you can use one of these commands to install the minimal dependencies for compiling and installing the Git binaries:
+---
+> If you want to install Git on Linux via a binary installer, you can generally do so through the basic package-management tool that comes with your distribution.
+>  If you’re on Fedora, you can use yum:
+307,313c252
+< [source,console]
+< ----
+< $ sudo dnf install dh-autoreconf curl-devel expat-devel gettext-devel \
+<   openssl-devel perl-devel zlib-devel
+< $ sudo apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev \
+<   gettext libz-dev libssl-dev
+< ----
+---
+> 	$ yum install git
+315c254
+< In order to be able to add the documentation in various formats (doc, html, info), these additional dependencies are required (Note: users of RHEL and RHEL-derivatives like CentOS and Scientific Linux will have to https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F[enable the EPEL repository] to download the `docbook2X` package):
+---
+> Or if you’re on a Debian-based distribution like Ubuntu, try apt-get:
+317,321c256
+< [source,console]
+< ----
+< $ sudo dnf install asciidoc xmlto docbook2X
+< $ sudo apt-get install asciidoc xmlto docbook2x
+< ----
+---
+> 	$ apt-get install git
+323c258
+< If you're using a Debian-based distribution (Debian/Ubuntu/Ubuntu-derivatives), you also need the `install-info` package:
+---
+> ### Installing on Mac ###
+325,328c260,261
+< [source,console]
+< ----
+< $ sudo apt-get install install-info
+< ----
+---
+> There are three easy ways to install Git on a Mac.
+>  The easiest is to use the graphical Git installer, which you can download from the SourceForge page (see Figure 1-7):
+330c263
+< If you're using a RPM-based distribution (Fedora/RHEL/RHEL-derivatives), you also need the `getopt` package (which is already installed on a Debian-based distro):
+---
+> 	http://sourceforge.net/projects/git-osx-installer/
+332,336c265,266
+< [source,console]
+< ----
+< $ sudo dnf install getopt
+< $ sudo apt-get install getopt
+< ----
+---
+> Insert 18333fig0107.png
+> Figure 1-7. Git OS X installer.
+338c268
+< Additionally, if you're using Fedora/RHEL/RHEL-derivatives, you need to do this
+---
+> The other major way is to install Git via MacPorts (`http://www.macports.org`). If you have MacPorts installed, install Git via
+340,343c270
+< [source,console]
+< ----
+< $ sudo ln -s /usr/bin/db2x_docbook2texi /usr/bin/docbook2x-texi
+< ----
+---
+> 	$ sudo port install git +svn +doc +bash_completion +gitweb
+345c272
+< due to binary name differences.
+---
+> You don’t have to add all the extras, but you’ll probably want to include +svn in case you ever have to use Git with Subversion repositories (see Chapter 8).
+347,349d273
+< When you have all the necessary dependencies, you can go ahead and grab the latest tagged release tarball from several places.
+< You can get it via the kernel.org site, at https://www.kernel.org/pub/software/scm/git[], or the mirror on the GitHub website, at https://github.com/git/git/releases[].
+< It's generally a little clearer what the latest version is on the GitHub page, but the kernel.org page also has release signatures if you want to verify your download.
+351c275,276
+< Then, compile and install:
+---
+> Homebrew (`http://brew.sh/`) is another alternative to install Git.
+>  If you have Homebrew installed, install Git via
+353,361c278
+< [source,console]
+< ----
+< $ tar -zxf git-2.0.0.tar.gz
+< $ cd git-2.0.0
+< $ make configure
+< $ ./configure --prefix=/usr
+< $ make all doc info
+< $ sudo make install install-doc install-html install-info
+< ----
+---
+> 	$ brew install git
+363c280,286
+< After this is done, you can also get Git via Git itself for updates:
+---
+> ### Installing on Windows ###
+>
+> Installing Git on Windows is very easy.
+>  The msysGit project has one of the easier installation procedures.
+>  Simply download the installer exe file from the GitHub page, and run it:
+>
+> 	http://msysgit.github.io
+365,368c288
+< [source,console]
+< ----
+< $ git clone git://git.kernel.org/pub/scm/git/git.git
+< ----
+---
+> After it’s installed, you have both a command-line version (including an SSH client that will come in handy later) and the standard GUI.
+370a291,292
+> Note on Windows usage: you should use Git with the provided msysGit shell (Unix style), it allows to use the complex lines of command given in this book.
+>  If you need, for some reason, to use the native Windows shell / command line console, you have to use double quotes instead of single quotes (for parameters with spaces in them) and you must quote the parameters ending with the circumflex accent (^) if they are last on the line, as it is a continuation symbol in Windows.
+373,374c295
+< [[_first_time]]
+< === First-Time Git Setup
+---
+> ## First-Time Git Setup ##
+376,378c297,299
+< Now that you have Git on your system, you'll want to do a few things to customize your Git environment.
+< You should have to do these things only once on any given computer; they'll stick around between upgrades.
+< You can also change them at any time by running through the commands again.
+---
+> Now that you have Git on your system, you’ll want to do a few things to customize your Git environment.
+>  You should have to do these things only once; they’ll stick around between upgrades.
+>  You can also change them at any time by running through the commands again.
+380,381d300
+< Git comes with a tool called `git config` that lets you get and set configuration variables that control all aspects of how Git looks and operates.(((git commands, config)))
+< These variables can be stored in three different places:
+383,390c302,303
+< 1. `/etc/gitconfig` file: Contains values applied to every user on the system and all their repositories.
+<   If you pass the option `--system` to `git config`, it reads and writes from this file specifically.
+<   (Because this is a system configuration file, you would need administrative or superuser privilege to make changes to it.)
+< 2. `~/.gitconfig` or `~/.config/git/config` file: Values specific personally to you, the user.
+<   You can make Git read and write to this file specifically by passing the `--global` option, and this affects _all_ of the repositories you work with on your system.
+< 3. `config` file in the Git directory (that is, `.git/config`) of whatever repository you're currently using: Specific to that single repository.
+<   You can force Git to read from and write to this file with the `--local` option, but that is in fact the default.
+<   (Unsurprisingly, you need to be located somewhere in a Git repository for this option to work properly.)
+---
+> Git comes with a tool called `git config` that lets you get and set configuration variables that control all aspects of how Git looks and operates.
+>  These variables can be stored in three different places:
+392c305,306
+< Each level overrides values in the previous level, so values in `.git/config` trump those in `/etc/gitconfig`.
+---
+> *	`/etc/gitconfig` file: Contains values for every user on the system and all their repositories.
+>  If you pass the option` --system` to `git config`, it reads and writes from this file specifically.
+394,398c308,309
+< On Windows systems, Git looks for the `.gitconfig` file in the `$HOME` directory (`C:\Users\$USER` for most people).
+< It also still looks for `/etc/gitconfig`, although it's relative to the MSys root, which is wherever you decide to install Git on your Windows system when you run the installer.
+< If you are using version 2.x or later of Git for Windows, there is also a system-level config file at
+< `C:\Documents and Settings\All Users\Application Data\Git\config` on Windows XP, and in `C:\ProgramData\Git\config` on Windows Vista and newer.
+< This config file can only be changed by `git config -f <file>` as an admin.
+---
+> *	`~/.gitconfig` file: Specific to your user.
+>  You can make Git read and write to this file specifically by passing the `--global` option.
+400c311,312
+< You can view all of your settings and where they are coming from using:
+---
+> *	config file in the Git directory (that is, `.git/config`) of whatever repository you’re currently using: Specific to that single repository.
+>  Each level overrides values in the previous level, so values in `.git/config` trump those in `/etc/gitconfig`.
+402,405d313
+< [source,console]
+< ----
+< $ git config --list --show-origin
+< ----
+407c315,316
+< ==== Your Identity
+---
+> On Windows systems, Git looks for the `.gitconfig` file in the `$HOME` directory (`%USERPROFILE%` in Windows’ environment), which is `C:\Documents and Settings\$USER` or `C:\Users\$USER` for most people, depending on version (`$USER` is `%USERNAME%` in Windows’ environment).
+>  It also still looks for /etc/gitconfig, although it’s relative to the MSys root, which is wherever you decide to install Git on your Windows system when you run the installer.
+409,410d317
+< The first thing you should do when you install Git is to set your user name and email address.
+< This is important because every Git commit uses this information, and it's immutably baked into the commits you start creating:
+412,416c319,325
+< [source,console]
+< ----
+< $ git config --global user.name "John Doe"
+< $ git config --global user.email johndoe@example.com
+< ----
+---
+> ### Your Identity ###
+>
+> The first thing you should do when you install Git is to set your user name and e-mail address.
+>  This is important because every Git commit uses this information, and it’s immutably baked into the commits you pass around:
+>
+> 	$ git config --global user.name "John Doe"
+> 	$ git config --global user.email johndoe@example.com
+419c328
+< If you want to override this with a different name or email address for specific projects, you can run the command without the `--global` option when you're in that project.
+---
+>  If you want to override this with a different name or e-mail address for specific projects, you can run the command without the `--global` option when you’re in that project.
+421d329
+< Many of the GUI tools will help you do this when you first run them.
+423,424c331
+< [[_editor]]
+< ==== Your Editor
+---
+> ### Your Editor ###
+427c334,335
+< If not configured, Git uses your system's default editor.
+---
+>  By default, Git uses your system’s default editor, which is generally Vi or Vim.
+>  If you want to use a different text editor, such as Emacs, you can do the following:
+429c337
+< If you want to use a different text editor, such as Emacs, you can do the following:
+---
+> 	$ git config --global core.editor emacs
+431,473c339
+< [source,console]
+< ----
+< $ git config --global core.editor emacs
+< ----
+<
+< On a Windows system, if you want to use a different text editor, you must specify the full path to its executable file.
+< This can be different depending on how your editor is packaged.
+<
+< In the case of Notepad++, a popular programming editor, you are likely to want to use the 32-bit version, since at the time of writing the 64-bit version doesn't support all plug-ins.
+< If you are on a 32-bit Windows system, or you have a 64-bit editor on a 64-bit system, you'll type something like this:
+<
+< [source,console]
+< ----
+< $ git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+< ----
+<
+< [NOTE]
+< ====
+< Vim, Emacs and Notepad++ are popular text editors often used by developers on Unix-based systems like Linux and macOS or a Windows system.
+< If you are using another editor, or a 32-bit version, please find specific instructions for how to set up your favorite editor with Git in <<C-git-commands#_core_editor>>.
+< ====
+<
+< [WARNING]
+< ====
+< You may find, if you don't setup your editor like this, you get into a really confusing state when Git attempts to launch it.
+< An example on a Windows system may include a prematurely terminated Git operation during a Git initiated edit.
+< ====
+<
+< ==== Checking Your Settings
+<
+< If you want to check your configuration settings, you can use the `git config --list` command to list all the settings Git can find at that point:
+<
+< [source,console]
+< ----
+< $ git config --list
+< user.name=John Doe
+< user.email=johndoe@example.com
+< color.status=auto
+< color.branch=auto
+< color.interactive=auto
+< color.diff=auto
+< ...
+< ----
+---
+> ### Your Diff Tool ###
+475,476c341,342
+< You may see keys more than once, because Git reads the same key from different files (`/etc/gitconfig` and `~/.gitconfig`, for example).
+< In this case, Git uses the last value for each unique key it sees.
+---
+> Another useful option you may want to configure is the default diff tool to use to resolve merge conflicts.
+>  Say you want to use vimdiff:
+478c344
+< You can also check what Git thinks a specific key's value is by typing `git config <key>`:(((git commands, config)))
+---
+> 	$ git config --global merge.tool vimdiff
+480,484c346,347
+< [source,console]
+< ----
+< $ git config user.name
+< John Doe
+< ----
+---
+> Git accepts kdiff3, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge, and opendiff as valid merge tools.
+>  You can also set up a custom tool; see Chapter 7 for more information about doing that.
+486,489d348
+< [NOTE]
+< ====
+< Since Git might read the same configuration variable value from more than one file, it's possible that you have an unexpected value for one of these values and you don't know why.
+< In cases like that, you can query Git as to the _origin_ for that value, and it will tell you which configuration file had the final say in setting that value:
+491,496c350
+< [source,console]
+< ----
+< $ git config --show-origin rerere.autoUpdate
+< file:/home/johndoe/.gitconfig	false
+< ----
+< ====
+---
+> ### Checking Your Settings ###
+497a352
+> If you want to check your settings, you can use the `git config --list` command to list all the settings Git can find at that point:
+498a354,364
+> 	$ git config --list
+> 	user.name=Scott Chacon
+> 	user.email=schacon@gmail.com
+> 	color.status=auto
+> 	color.branch=auto
+> 	color.interactive=auto
+> 	color.diff=auto
+> 	...
+>
+> You may see keys more than once, because Git reads the same key from different files (`/etc/gitconfig` and `~/.gitconfig`, for example).
+>  In this case, Git uses the last value for each unique key it sees.
+500a367
+> You can also check what Git thinks a specific key’s value is by typing `git config {key}`:
+502,503c369,370
+< [[_git_help]]
+< === Getting Help
+---
+> 	$ git config user.name
+> 	Scott Chacon
+505c372
+< If you ever need help while using Git, there are three equivalent ways to get the comprehensive manual page (manpage) help for any of the Git commands:
+---
+> ## Getting Help ##
+507,512c374
+< [source,console]
+< ----
+< $ git help <verb>
+< $ git <verb> --help
+< $ man git-<verb>
+< ----
+---
+> If you ever need help while using Git, there are three ways to get the manual page (manpage) help for any of the Git commands:
+514c376,378
+< For example, you can get the manpage help for the `git config` command by running(((git commands, help)))
+---
+> 	$ git help <verb>
+> 	$ git <verb> --help
+> 	$ man git-<verb>
+516,519c380,382
+< [source,console]
+< ----
+< $ git help config
+< ----
+---
+> For example, you can get the manpage help for the config command by running
+>
+> 	$ git help config
+522,523d384
+< If the manpages and this book aren't enough and you need in-person help, you can try the `#git` or `#github` channel on the Freenode IRC server, which can be found at https://freenode.net[].
+< These channels are regularly filled with hundreds of people who are all very knowledgeable about Git and are often willing to help.(((IRC)))
+525c386,394
+< In addition, if you don't need the full-blown manpage help, but just need a quick refresher on the available options for a Git command, you can ask for the more concise ``help'' output with the `-h` or `--help` options, as in:
+---
+> If the manpages and this book aren’t enough and you need in-person help, you can try the `#git` or `#github` channel on the Freenode IRC server (irc.freenode.net).
+>  These channels are regularly filled with hundreds of people who are all very knowledgeable about Git and are often willing to help.
+>
+>
+> ## Summary ##
+>
+> You should have a basic understanding of what Git is and how it’s different from the CVCS you may have been using.
+>  You should also now have a working version of Git on your system that’s set up with your personal identity.
+>  It’s now time to learn some Git basics.
+527,555d395
+< [source,console]
+< ----
+< $ git add -h
+< usage: git add [<options>] [--] <pathspec>...
+<
+<     -n, --dry-run         dry run
+<     -v, --verbose         be verbose
+<
+<     -i, --interactive     interactive picking
+<     -p, --patch           select hunks interactively
+<     -e, --edit            edit current diff and apply
+<     -f, --force           allow adding otherwise ignored files
+<     -u, --update          update tracked files
+<     --renormalize         renormalize EOL of tracked files (implies -u)
+<     -N, --intent-to-add   record only the fact that the path will be added later
+<     -A, --all             add changes from all tracked and untracked files
+<     --ignore-removal      ignore paths removed in the working tree (same as --no-all)
+<     --refresh             don't add, only refresh the index
+<     --ignore-errors       just skip files which cannot be added because of errors
+<     --ignore-missing      check if - even missing - files are ignored in dry run
+<     --chmod (+|-)x        override the executable bit of the listed files
+< ----
+<
+<
+< === Summary
+<
+< You should have a basic understanding of what Git is and how it's different from any centralized version control systems you may have been using previously.
+< You should also now have a working version of Git on your system that's set up with your personal identity.
+< It's now time to learn some Git basics.
